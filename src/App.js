@@ -5,7 +5,8 @@ import Menu from "./components/menu";
 import "./styles.css";
 
 const App = () => {
-  const [headers, ...items] = menuData.values;
+  // Destructure menuData values and organize them by category
+  const [, ...items] = menuData.values;
   const categories = {};
 
   // Organize menu items by category
