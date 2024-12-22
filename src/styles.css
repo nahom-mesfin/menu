@@ -36,11 +36,11 @@ html {
   font-size: 24px;
   padding-left: 100px;
   color: #fac031;
-  text-align: center; /* Center the header title */
+  text-align: center;
 }
 
 .sticky-header h1 span {
-  color: #000; /* Style for the span inside h1 */
+  color: #000;
 }
 
 /* Header Links */
@@ -67,16 +67,9 @@ html {
 .menu-container {
   padding: 20px;
   margin-top: 20px;
-  /* z-index: 999; Ensure it stays below the sticky header */
 }
 
 /* Menu Category */
-/* .menu-category {
-  margin-bottom: 40px;
-  transition: margin-top 0.3s ease;
-  text-align: center;
-  border-top: 1px solid #aca089;
-} */
 
 .menu-category h2 {
   text-align: center;
@@ -89,7 +82,7 @@ html {
   margin-top: 100px; /* Add top margin when the menu is expanded */
 }
 
-/* Menu Items (Grid Layout) */
+/* Menu Items  */
 .menu-items {
   display: grid;
   gap: 20px;
@@ -210,7 +203,7 @@ html {
   /* Scroll Margin for Smooth Scrolling */
   header,
   .menu-category {
-    scroll-margin-top: 150px; /* To ensure the content doesn't hide under the sticky header */
+    scroll-margin-top: 170px; /* To ensure the content doesn't hide under the sticky header */
   }
 }
 
@@ -226,7 +219,7 @@ html {
 
   .header-link {
     font-size: 12px;
-    padding: 8px; /* Adjusted padding */
+    padding: 8px;
   }
 
   .order-now-btn {
