@@ -1,9 +1,16 @@
-/* General Styles */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap");
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Playfair Display", serif;
   margin: 0;
   padding: 0;
   line-height: 1.6;
+}
+
+h1,
+h2,
+.menu-category h2 {
+  font-family: "Playfair Display", serif;
 }
 
 html {
@@ -14,16 +21,37 @@ html {
 .sticky-header {
   position: sticky;
   top: 0;
-  background-color: #333;
-  color: white;
+  background-color: white;
+  color: rgb(7, 1, 1);
   padding: 10px 20px;
   display: flex;
+  justify-content: space-between;
+  box-shadow: 0 0 10px 0;
+  align-items: center;
+  z-index: 1000; /* Ensure header is on top */
+}
+
+.sticky-header h1 {
+  margin: 0;
+  font-size: 24px;
+  padding-left: 100px;
+  color: #fac031;
+  text-align: center; /* Center the header title */
+}
+
+.sticky-header h1 span {
+  color: #000; /* Style for the span inside h1 */
+}
+
+/* Header Links */
+.header-links {
+  display: flex;
   gap: 15px;
-  z-index: 1000;
+  padding-right: 40px;
 }
 
 .header-link {
-  color: white;
+  color: #000;
   text-decoration: none;
   padding: 10px;
   border-radius: 5px;
@@ -32,49 +60,57 @@ html {
 
 .header-link:hover {
   background-color: #555;
+  color: #fff;
 }
 
 /* Menu Container */
 .menu-container {
   padding: 20px;
+  margin-top: 20px;
+  /* z-index: 999; Ensure it stays below the sticky header */
 }
 
 /* Menu Category */
-.menu-category {
+/* .menu-category {
   margin-bottom: 40px;
-}
+  transition: margin-top 0.3s ease;
+  text-align: center;
+  border-top: 1px solid #aca089;
+} */
 
 .menu-category h2 {
   text-align: center;
-  border-bottom: 2px solid #ccc;
+  border-bottom: 2px solid #ccc; /* Shadowed line under the title */
   padding-bottom: 10px;
   margin-bottom: 20px;
+}
+
+.menu-category.open {
+  margin-top: 100px; /* Add top margin when the menu is expanded */
 }
 
 /* Menu Items (Grid Layout) */
 .menu-items {
   display: grid;
-  /* grid-template-columns: repeat(
-    auto-fit,
-    minmax(200px, 1fr)
-  ); Dynamic column size */
   gap: 20px;
   justify-content: center;
   width: 95%;
   margin: 0 auto;
-
-  grid-template-columns: repeat(4, 1fr); /* Exactly 4 cards per row */
+  grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+  position: relative;
+  margin-bottom: 50px;
 }
 
 /* Menu Item */
 .menu-item {
   display: grid;
-  grid-template-rows: auto 1fr auto; /* Image, details, and text */
+  grid-template-rows: auto 1fr auto;
   border: 1px solid #ccc;
   border-radius: 10px;
   overflow: hidden;
   padding: 10px;
   text-align: center;
+  transition: margin-top 0.3s ease; /* Smooth transition */
 }
 
 .menu-item-image {
@@ -84,35 +120,30 @@ html {
   border-bottom: 1px solid #ccc;
   margin-bottom: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  /* Maintains the aspect ratio of the image */
-  /* Ensures the entire image is visible */
 }
 
 .menu-item-details h3 {
-  /* padding: 10px 0; */
-
-  margin: 10px auto 10px auto; /* Top and bottom margin of 10px, left and right auto-centered */
+  margin: 10px auto;
   font-size: 25px;
   text-align: center;
   color: #fac031;
 }
 
 .menu-item-details p {
-  margin: 5px 0; /* Adjust spacing for price or other details */
+  margin: 5px 0;
   font-size: 15px;
   color: #000;
 }
 
 .menu-item-image:hover {
-  transform: scale(1.05); /* Slightly enlarges the image */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Adds a shadow for a bold effect */
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .menu-item-details .stars {
   font-size: 25px;
   color: #fac031;
-  margin: 10px 0 20px 0; /* Maintains spacing */
+  margin: 10px 0 20px 0;
 }
 
 .half-star {
@@ -126,18 +157,91 @@ html {
   background-color: #000;
   color: #fff;
   border: none;
-  border-radius: 5px; /* Rounded corners */
+  border-radius: 5px;
   padding: 10px 20px;
   font-size: 16px;
-  cursor: pointer; /* Change cursor on hover */
+  cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .order-now-btn:hover {
-  background-color: #f8b400; /* Slightly darker background on hover */
-  transform: scale(1.05); /* Enlarge slightly on hover */
+  background-color: #f8b400;
+  transform: scale(1.05);
 }
 
 .order-now-btn:active {
-  transform: scale(0.95); /* Slightly shrink on click */
+  transform: scale(0.95);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  /* For tablets and smaller screens */
+  .menu-items {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+  }
+
+  .sticky-header h1 {
+    font-size: 18px; /* Smaller header text */
+    padding-left: 10px;
+  }
+
+  .header-links {
+    flex-direction: column; /* Stack links vertically */
+    gap: 10px;
+  }
+
+  .header-link {
+    font-size: 14px; /* Smaller link font size */
+  }
+
+  .menu-item {
+    padding: 15px; /* More padding for spacing */
+  }
+
+  .menu-item-image {
+    height: 120px; /* Smaller image height */
+  }
+
+  .menu-container {
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  /* Scroll Margin for Smooth Scrolling */
+  header,
+  .menu-category {
+    scroll-margin-top: 150px; /* To ensure the content doesn't hide under the sticky header */
+  }
+}
+
+@media (max-width: 480px) {
+  /* For mobile screens */
+  .menu-items {
+    grid-template-columns: 1fr; /* 1 card per row */
+  }
+
+  .sticky-header h1 {
+    font-size: 16px;
+  }
+
+  .header-link {
+    font-size: 12px;
+    padding: 8px; /* Adjusted padding */
+  }
+
+  .order-now-btn {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .menu-container {
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  /* Scroll Margin for Smooth Scrolling */
+  header,
+  .menu-category {
+    scroll-margin-top: 150px; /* To ensure the content doesn't hide under the sticky header */
+  }
 }
