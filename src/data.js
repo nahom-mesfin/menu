@@ -13,6 +13,21 @@ const menuData = {
       "900 Birr",
       "Salads 🥗",
     ],
+
+    [
+      "Chicken Salad",
+      "https://i.imghippo.com/files/vrCz5599Ivk.jpg",
+      "1000 Birr",
+      "Salads 🥗",
+    ],
+
+    [
+      "Caesar Salad",
+      "https://i.imghippo.com/files/nOY6416rs.jpg",
+      "760 Birr",
+      "Salads 🥗",
+    ],
+
     [
       "Egg on toast",
       "https://i.imghippo.com/files/Mzf4647.png",
@@ -24,6 +39,20 @@ const menuData = {
       "Baguette",
       "https://i.imghippo.com/files/sMnW5510Rw.png",
       "900 Birr",
+      "Brunch 🥖",
+    ],
+
+    [
+      "pancake",
+      "https://i.imghippo.com/files/olT2388lqg.webp",
+      "400 Birr",
+      "Brunch 🥖",
+    ],
+
+    [
+      "burrito",
+      "https://i.imghippo.com/files/vAT2097IwI.webp",
+      "600 Birr",
       "Brunch 🥖",
     ],
     [

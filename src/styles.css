@@ -1,4 +1,5 @@
-General Styles body {
+/* General Styles */
+body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -50,23 +51,29 @@ html {
   margin-bottom: 20px;
 }
 
-/* /* Menu Items */
+/* Menu Items (Grid Layout) */
 .menu-items {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  /* grid-template-columns: repeat(
+    auto-fit,
+    minmax(200px, 1fr)
+  ); Dynamic column size */
   gap: 20px;
   justify-content: center;
+  width: 95%;
+  margin: 0 auto;
+
+  grid-template-columns: repeat(4, 1fr); /* Exactly 4 cards per row */
 }
 
+/* Menu Item */
 .menu-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* Image, details, and text */
   border: 1px solid #ccc;
   border-radius: 10px;
   overflow: hidden;
   padding: 10px;
-  width: 200px;
   text-align: center;
 }
 
@@ -76,8 +83,61 @@ html {
   object-fit: cover;
   border-bottom: 1px solid #ccc;
   margin-bottom: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  /* Maintains the aspect ratio of the image */
+  /* Ensures the entire image is visible */
 }
 
-.menu-item-details {
-  padding: 10px 0;
+.menu-item-details h3 {
+  /* padding: 10px 0; */
+
+  margin: 10px auto 10px auto; /* Top and bottom margin of 10px, left and right auto-centered */
+  font-size: 25px;
+  text-align: center;
+  color: #fac031;
+}
+
+.menu-item-details p {
+  margin: 5px 0; /* Adjust spacing for price or other details */
+  font-size: 15px;
+  color: #000;
+}
+
+.menu-item-image:hover {
+  transform: scale(1.05); /* Slightly enlarges the image */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Adds a shadow for a bold effect */
+}
+
+.menu-item-details .stars {
+  font-size: 25px;
+  color: #fac031;
+  margin: 10px 0 20px 0; /* Maintains spacing */
+}
+
+.half-star {
+  color: #ebdfdf;
+  position: relative;
+  font-size: 25px;
+  z-index: 1;
+}
+
+.order-now-btn {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer; /* Change cursor on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.order-now-btn:hover {
+  background-color: #f8b400; /* Slightly darker background on hover */
+  transform: scale(1.05); /* Enlarge slightly on hover */
+}
+
+.order-now-btn:active {
+  transform: scale(0.95); /* Slightly shrink on click */
 }

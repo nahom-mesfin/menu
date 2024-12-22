@@ -19,9 +19,17 @@ const Menu = ({ categories, menuItems }) => {
                 <div className="menu-item-details">
                   <h3>{item.name}</h3>
                   <p>{item.price}</p>
-                  <p>
-                    <strong>{category}</strong>
+                  <h4>
+                    <strong>{category}</strong>{" "}
+                  </h4>
+
+                  <p className="stars">
+                    ★★★★<span className="half-star">☆</span>
                   </p>
+                </div>
+
+                <div>
+                  <button className="order-now-btn">Order Now</button>
                 </div>
               </div>
             ))}
